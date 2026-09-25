@@ -17,42 +17,57 @@ File: `mobile-app-demo.apk`
 5. Tap **Install**.
 6. When installation finishes, tap **Open** to launch the demo.
 
-## Option 2 — Test with an Android emulator on a computer
+## Option 2 — Test on a computer with Android Studio Emulator
 
-If you do not have an Android phone, you can test the APK with an Android emulator.
+If you do not have an Android phone, the APK can be tested with the Android Emulator included with Android Studio.
 
-### Prerequisites
-
-- Android Studio installed
-- An Android Virtual Device (AVD) created in **Device Manager**
-- `adb` available from the Android SDK platform-tools
-
-### Steps
+### A. Create and start an emulator
 
 1. Open **Android Studio**.
-2. Open **Device Manager** and start any Android emulator.
-3. Download `mobile-app-demo.apk` from this repository to your computer.
-4. Open a terminal in the folder containing the APK.
-5. Check that the emulator is detected:
+2. From the welcome screen choose **More Actions → Virtual Device Manager**. If a project is already open, use **Tools → Device Manager**.
+3. Click **Create device**.
+4. Choose a phone profile such as **Pixel 8** and click **Next**.
+5. Choose an available Android system image. If Android Studio asks to download one, click **Download**, wait for it to finish, then select it.
+6. Click **Next → Finish**.
+7. In **Device Manager**, click the **▶ Play** button next to the new virtual device.
+8. Wait until the Android home screen appears.
+
+### B. Download the APK
+
+1. Return to this GitHub repository.
+2. Click **Download the APK** above.
+3. Save `mobile-app-demo.apk` somewhere easy to find, for example the **Downloads** folder.
+
+### C. Install the APK — easiest method
+
+1. Keep the Android emulator open.
+2. Open Windows File Explorer and locate `mobile-app-demo.apk`.
+3. Drag the APK file directly onto the running emulator window.
+4. Wait for Android to finish installing it.
+5. Open the app from the emulator's app launcher.
+
+### D. Alternative installation with ADB
+
+If you prefer the command line, open a terminal in the folder containing the APK and check that the emulator is detected:
 
 ```bash
 adb devices
 ```
 
-You should see an emulator listed as `device`.
+You should see an emulator listed with the status `device`.
 
-6. Install the APK:
+Then install the APK:
 
 ```bash
 adb install -r mobile-app-demo.apk
 ```
 
-7. When the terminal shows `Success`, open the app from the emulator's app launcher.
+When the terminal shows `Success`, open the app from the emulator's app launcher.
 
 ## Notes
 
-- This is an Android APK demo build intended for review/testing.
+- This is an Android APK demo build intended only for review/testing.
 - It is installed manually and is not distributed through the Google Play Store.
 - Android may display a security warning because the APK is being installed directly; this is expected for a manually shared demo build.
-- The emulator steps above are generic and do not require access to the private source-code repository.
-- This repository contains only the compiled demo build and does not expose the private source-code repository.
+- No access to the private source-code repository is required to test the APK.
+- This public repository contains only the compiled demo build and the testing instructions.
